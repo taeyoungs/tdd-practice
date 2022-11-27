@@ -1,1 +1,3 @@
-class Dollar {}
+class Dollar {
+  constructor(amount) {}
+}
