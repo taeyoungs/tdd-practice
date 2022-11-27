@@ -82,7 +82,7 @@ test('어떤 금액(주가)을 어떤 수(주식의 수)에 곱한 금액을 결
 
 천천히 하나씩 문제를 해결해 나간다.
 
-1. Dollar 클래스를 정의한다.
+1. `Dollar` 클래스를 정의한다.
 
    ```javascript
    class Dollar {}
@@ -188,7 +188,7 @@ export default Dollar;
 5와 2를 어디서 얻을 수 있는지 생각해보자.
 
 - 5는 생성자의 매개변수를 통해서
-- 2는 times 메서드의 매개변수를 통해서
+- 2는 `times` 메서드의 매개변수를 통해서
 
 각각 얻을 수 있다. 이를 코드에 적용시켜보자.
 
@@ -215,9 +215,9 @@ export default Dollar;
 
 까먹지 말고 부작용에 대한 작업도 할 일 목록에 추가해놓자.
 
-- [ ] amount를 private으로 만들기
-- [ ] Dollar 부작용 ?
-- [ ] Money 반올림 ?
+- [ ] `amount`를 `private`으로 만들기
+- [ ] `Dollar` 부작용 ?
+- [ ] `Money` 반올림 ?
 
 ## 돌아보기
 
