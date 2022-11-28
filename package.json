@@ -7,7 +7,7 @@
   "author": "Taeyoung Jang <xoxodudwkd@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
