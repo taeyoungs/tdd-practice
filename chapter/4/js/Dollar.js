@@ -1,16 +1,20 @@
 class Dollar {
-  amount;
+  #amount;
 
   constructor(amount) {
-    this.amount = amount;
+    this.#amount = amount;
+  }
+
+  get amount() {
+    return this.#amount;
   }
 
   times(multiplier) {
-    return new Dollar(this.amount * multiplier);
+    return new Dollar(this.#amount * multiplier);
   }
 
   equals(instance) {
-    return this.amount === instance.amount;
+    return this.#amount === instance.amount;
   }
 }
 
