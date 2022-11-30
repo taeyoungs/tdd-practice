@@ -4,7 +4,7 @@ test('어떤 금액(주가)을 어떤 수(주식의 수)에 곱한 금액을 결
   const five = new Dollar(5);
 
   let product = five.times(2);
-  expect(product.amount).toBe(10);
+  expect(new Dollar(10).equals(product)).toBe(true);
   product = five.times(3);
-  expect(product.amount).toBe(15);
+  expect(new Dollar(15).equals(product)).toBe(true);
 });
