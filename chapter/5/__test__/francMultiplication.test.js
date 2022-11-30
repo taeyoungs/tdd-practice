@@ -1,3 +1,5 @@
+import Franc from '../js/Franc';
+
 test('Franc 곱하기 연산 검증', () => {
   const five = new Franc(5);
 
