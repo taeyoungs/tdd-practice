@@ -89,7 +89,7 @@ class Money {
 export default Money;
 ```
 
-책에서는 Money 클래스로 `amount` 인스턴스 변수를 옮기고 `amount` 변수의 접근 제한자를 `protected`로 변경하지만 여기선 타입스크립트를 사용하고 있지도 않고 자바스크립트를 사용하고 있기 때문에 `Dollar` 클래스에 추가적인 코드 수정을 진행한다.
+책에서는 `Money` 클래스로 `amount` 인스턴스 변수를 옮기고 `amount` 변수의 접근 제한자를 `protected`로 변경하지만 여기선 타입스크립트를 사용하고 있지도 않고 자바스크립트를 사용하고 있기 때문에 `Dollar` 클래스에 추가적인 코드 수정을 진행한다.
 
 ```javascript
 import Money from './Money';
@@ -185,7 +185,7 @@ class Franc extends Money {
 export default Franc;
 ```
 
-`Franc` 클래스를 수정한 후에 테스트를 돌려봐도 여전히 테스트는 통과하고 있다. 근데 동치성 테스트로 Dollar와 Franc를 비교하면 어떻게 될까? 이를 인지하고 이제 할 일 목록을 업데이트 해보자.
+`Franc` 클래스를 수정한 후에 테스트를 돌려봐도 여전히 테스트는 통과하고 있다. 근데 동치성 테스트로 `Dollar`와 `Franc`를 비교하면 어떻게 될까? 이를 인지하고 이제 할 일 목록을 업데이트 해보자.
 
 - [ ] $5 + 10CHF = $10 (환율이 2:1일 경우)
 - [x] ~~$5 x 2 = $10~~
