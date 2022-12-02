@@ -10,7 +10,9 @@ class Money {
   }
 
   equals(instance) {
-    return this.amount === instance.amount;
+    const isSameConstructor = this.constructor === instance.constructor;
+
+    return this.amount === instance.amount && isSameConstructor;
   }
 }
 
