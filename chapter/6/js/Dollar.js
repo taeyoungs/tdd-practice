@@ -8,10 +8,6 @@ class Dollar extends Money {
   times(multiplier) {
     return new Dollar(super.amount * multiplier);
   }
-
-  equals(instance) {
-    return super.amount === instance.amount;
-  }
 }
 
 export default Dollar;
