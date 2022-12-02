@@ -1,4 +1,6 @@
-class Dollar {
+import Money from './Money';
+
+class Dollar extends Money {
   #amount;
 
   constructor(amount) {
