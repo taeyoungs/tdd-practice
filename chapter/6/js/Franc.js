@@ -1,20 +1,12 @@
-class Franc {
-  #amount;
+import Money from './Money';
 
+class Franc extends Money {
   constructor(amount) {
-    this.#amount = amount;
-  }
-
-  get amount() {
-    return this.#amount;
+    super(amount);
   }
 
   times(multiplier) {
-    return new Franc(this.#amount * multiplier);
-  }
-
-  equals(instance) {
-    return this.#amount === instance.amount;
+    return new Franc(super.amount * multiplier);
   }
 }
 
