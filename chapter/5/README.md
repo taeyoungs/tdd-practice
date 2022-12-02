@@ -1,8 +1,8 @@
-# Chpater 5 - 솔직히 말하자면
+# Chapter 5 - 솔직히 말하자면
 
 **목차**
 
-- [Chpater 5 - 솔직히 말하자면](#chpater-5---솔직히-말하자면)
+- [Chapter 5 - 솔직히 말하자면](#chapter-5---솔직히-말하자면)
   - [개요](#개요)
   - [`Franc` 클래스](#franc-클래스)
   - [5CHF x 2 = 10CHF](#5chf-x-2--10chf)

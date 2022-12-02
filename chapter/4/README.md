@@ -1,8 +1,8 @@
-# Chpater 4 - 프라이버시
+# Chapter 4 - 프라이버시
 
 **목차**
 
-- [Chpater 4 - 프라이버시](#chpater-4---프라이버시)
+- [Chapter 4 - 프라이버시](#chapter-4---프라이버시)
   - [개요](#개요)
   - [`amount`를 `private`으로 만들기](#amount를-private으로-만들기)
   - [완벽함을 위해 노력하지는 않는다.](#완벽함을-위해-노력하지는-않는다)
