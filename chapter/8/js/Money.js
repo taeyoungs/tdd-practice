@@ -1,4 +1,5 @@
 import Dollar from './Dollar';
+import Franc from './Franc';
 
 class Money {
   #amount;
@@ -19,6 +20,10 @@ class Money {
 
   static dollar(amount) {
     return new Dollar(amount);
+  }
+
+  static franc(amount) {
+    return new Franc(amount);
   }
 }
 
