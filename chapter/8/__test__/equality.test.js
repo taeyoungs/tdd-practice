@@ -1,4 +1,4 @@
-import Money from '../js/Money';
+import { Money } from '../js/internal';
 
 test('생성자 함수 인자에 동일한 값을 전달한 인스턴스는 같아야 한다. 단, 클래스도 동일해야 한다', () => {
   expect(Money.dollar(5).equals(Money.dollar(5))).toBe(true);

@@ -1,4 +1,4 @@
-import Money from '../js/Money';
+import { Money } from '../js/internal';
 
 test('Dollar 곱하기 연산 검증', () => {
   const five = Money.dollar(5);

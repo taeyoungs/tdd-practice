@@ -1,7 +1,6 @@
-import Dollar from './Dollar';
-import Franc from './Franc';
+import { Dollar, Franc } from './internal';
 
-class Money {
+export class Money {
   #amount;
 
   constructor(amount) {
@@ -26,5 +25,3 @@ class Money {
     return new Franc(amount);
   }
 }
-
-export default Money;
