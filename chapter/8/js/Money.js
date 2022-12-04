@@ -1,3 +1,5 @@
+import Dollar from './Dollar';
+
 class Money {
   #amount;
 
@@ -13,6 +15,10 @@ class Money {
     const isSameConstructor = this.constructor === instance.constructor;
 
     return this.amount === instance.amount && isSameConstructor;
+  }
+
+  static dollar(amount) {
+    return new Dollar(amount);
   }
 }
 
