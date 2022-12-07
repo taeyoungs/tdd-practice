@@ -24,4 +24,6 @@ export class Money {
   static franc(amount) {
     return new Franc(amount);
   }
+
+  currency() {}
 }
