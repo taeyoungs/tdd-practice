@@ -4,8 +4,9 @@ export class Money {
   #amount;
   #currency;
 
-  constructor(amount) {
+  constructor(amount, currency) {
     this.#amount = amount;
+    this.#currency = currency;
   }
 
   get amount() {
