@@ -1,8 +1,11 @@
 import { Money, CURRENCY } from './internal';
 
 export class Dollar extends Money {
+  #currency;
+
   constructor(amount) {
     super(amount);
+    this.#currency = CURRENCY.DOLLAR;
   }
 
   times(multiplier) {
@@ -10,6 +13,6 @@ export class Dollar extends Money {
   }
 
   currency() {
-    return CURRENCY.DOLLAR;
+    return this.#currency;
   }
 }
