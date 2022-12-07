@@ -2,6 +2,7 @@ import { Dollar, Franc } from './internal';
 
 export class Money {
   #amount;
+  #currency;
 
   constructor(amount) {
     this.#amount = amount;
@@ -9,6 +10,10 @@ export class Money {
 
   get amount() {
     return this.#amount;
+  }
+
+  get currency() {
+    return this.#currency;
   }
 
   equals(instance) {
@@ -24,6 +29,4 @@ export class Money {
   static franc(amount) {
     return new Franc(amount);
   }
-
-  currency() {}
 }
