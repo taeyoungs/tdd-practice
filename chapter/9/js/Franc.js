@@ -1,11 +1,11 @@
-import { Money, CURRENCY } from './internal';
+import { Money } from './internal';
 
 export class Franc extends Money {
   #currency;
 
   constructor(amount, currency) {
     super(amount);
-    this.#currency = CURRENCY.FRANC;
+    this.#currency = currency;
   }
 
   times(multiplier) {

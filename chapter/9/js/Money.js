@@ -1,4 +1,4 @@
-import { Dollar, Franc } from './internal';
+import { Dollar, Franc, CURRENCY } from './internal';
 
 export class Money {
   #amount;
@@ -23,10 +23,10 @@ export class Money {
   }
 
   static dollar(amount) {
-    return new Dollar(amount);
+    return new Dollar(amount, CURRENCY.DOLLAR);
   }
 
   static franc(amount) {
-    return new Franc(amount);
+    return new Franc(amount, CURRENCY.FRANC);
   }
 }
