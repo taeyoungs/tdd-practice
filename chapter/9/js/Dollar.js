@@ -9,7 +9,7 @@ export class Dollar extends Money {
   }
 
   times(multiplier) {
-    return new Dollar(super.amount * multiplier);
+    return Money.dollar(super.amount * multiplier);
   }
 
   currency() {
