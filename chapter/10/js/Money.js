@@ -23,6 +23,10 @@ export class Money {
     return this.amount === instance.amount && isSameCurrency;
   }
 
+  times(multiplier) {
+    return new Money(this.amount * multiplier, this.currency);
+  }
+
   static dollar(amount) {
     return new Dollar(amount, CURRENCY.DOLLAR);
   }
