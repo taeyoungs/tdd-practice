@@ -18,9 +18,9 @@ export class Money {
   }
 
   equals(instance) {
-    const isSameConstructor = this.constructor === instance.constructor;
+    const isSameCurrency = this.currency === instance.currency;
 
-    return this.amount === instance.amount && isSameConstructor;
+    return this.amount === instance.amount && isSameCurrency;
   }
 
   static dollar(amount) {
