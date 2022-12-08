@@ -8,8 +8,4 @@ export class Dollar extends Money {
   times(multiplier) {
     return Money.dollar(super.amount * multiplier);
   }
-
-  currency() {
-    return super.currency;
-  }
 }

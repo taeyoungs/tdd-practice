@@ -8,8 +8,4 @@ export class Franc extends Money {
   times(multiplier) {
     return Money.franc(super.amount * multiplier);
   }
-
-  currency() {
-    return super.currency;
-  }
 }

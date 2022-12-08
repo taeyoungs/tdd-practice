@@ -330,10 +330,6 @@ export class Dollar extends Money {
   }
 
   // ...
-
-  currency() {
-    return super.currency;
-  }
 }
 
 export class Franc extends Money {
@@ -342,10 +338,6 @@ export class Franc extends Money {
   }
 
   // ...
-
-  currency() {
-    return super.currency;
-  }
 }
 ```
 
