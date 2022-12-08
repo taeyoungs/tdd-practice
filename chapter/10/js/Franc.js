@@ -6,6 +6,6 @@ export class Franc extends Money {
   }
 
   times(multiplier) {
-    return new Franc(super.amount * multiplier, CURRENCY.FRANC);
+    return new Franc(super.amount * multiplier, super.currency);
   }
 }
