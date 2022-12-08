@@ -1,4 +1,4 @@
-import { Money } from './internal';
+import { Money, CURRENCY } from './internal';
 
 export class Franc extends Money {
   constructor(amount, currency) {
@@ -6,6 +6,6 @@ export class Franc extends Money {
   }
 
   times(multiplier) {
-    return Money.franc(super.amount * multiplier);
+    return new Franc(super.amount * multiplier, CURRENCY.FRANC);
   }
 }
