@@ -16,3 +16,5 @@ http://www.yes24.com/Product/Goods/12246033
 - [Chapter 8 - 객체 만들기](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/8)
 - [Chapter 9 - 우리가 사는 시간](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/9)
 - [Chapter 10 - 흥미로운 시간](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/10)
+- [Chapter 11 - 모든 악의 근원](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/11)
+- [Chapter 12 - 드디어, 더하기](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/12)
