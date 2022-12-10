@@ -1,4 +1,5 @@
-import { CURRENCY, CurrencyTypes, Expression } from './internal';
+import { CURRENCY, CurrencyTypes } from './constants';
+import Expression from './Expression';
 
 export class Money {
   #amount: number;

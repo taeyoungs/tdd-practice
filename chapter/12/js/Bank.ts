@@ -1,1 +1,3 @@
-export class Bank {}
+class Bank {}
+
+export default Bank;

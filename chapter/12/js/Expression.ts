@@ -1,1 +1,3 @@
-export interface Expression {}
+interface Expression {}
+
+export default Expression;
