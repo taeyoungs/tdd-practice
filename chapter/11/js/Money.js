@@ -28,10 +28,10 @@ export class Money {
   }
 
   static dollar(amount) {
-    return new Dollar(amount, CURRENCY.DOLLAR);
+    return new Money(amount, CURRENCY.DOLLAR);
   }
 
   static franc(amount) {
-    return new Franc(amount, CURRENCY.FRANC);
+    return new Money(amount, CURRENCY.FRANC);
   }
 }
