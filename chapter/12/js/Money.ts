@@ -1,4 +1,5 @@
 import { CURRENCY, CurrencyTypes } from './internal';
+import Expression from './Expression';
 
 export class Money {
   #amount: number;
@@ -27,7 +28,7 @@ export class Money {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  plus(added: Money) {
+  plus(added: Money): Expression {
     return new Money(this.amount + added.amount, this.currency);
   }
 
