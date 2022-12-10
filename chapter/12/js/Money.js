@@ -1,4 +1,4 @@
-import { Dollar, Franc, CURRENCY } from './internal';
+import { CURRENCY } from './internal';
 
 export class Money {
   #amount;
@@ -25,6 +25,10 @@ export class Money {
 
   times(multiplier) {
     return new Money(this.amount * multiplier, this.currency);
+  }
+
+  plus(added) {
+    return new Money(this.amount + added.amount, this.currency);
   }
 
   static dollar(amount) {
