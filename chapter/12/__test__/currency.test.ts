@@ -1,5 +1,5 @@
-import { CURRENCY } from '../js/constants';
-import { Money } from '../js/Money';
+import { CURRENCY } from '../ts/constants';
+import { Money } from '../ts/Money';
 
 test('통화(currency) 테스트', () => {
   expect(Money.dollar(1).currency).toBe(CURRENCY.DOLLAR);
