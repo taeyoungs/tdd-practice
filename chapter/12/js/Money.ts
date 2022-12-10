@@ -1,10 +1,10 @@
-import { CURRENCY } from './internal';
+import { CURRENCY, CurrencyTypes } from './internal';
 
 export class Money {
-  #amount;
-  #currency;
+  #amount: number;
+  #currency: CurrencyTypes;
 
-  constructor(amount, currency) {
+  constructor(amount: number, currency: CurrencyTypes) {
     this.#amount = amount;
     this.#currency = currency;
   }
@@ -17,25 +17,25 @@ export class Money {
     return this.#currency;
   }
 
-  equals(instance) {
+  equals(instance: Money) {
     const isSameCurrency = this.currency === instance.currency;
 
     return this.amount === instance.amount && isSameCurrency;
   }
 
-  times(multiplier) {
+  times(multiplier: number) {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  plus(added) {
+  plus(added: Money) {
     return new Money(this.amount + added.amount, this.currency);
   }
 
-  static dollar(amount) {
+  static dollar(amount: number) {
     return new Money(amount, CURRENCY.DOLLAR);
   }
 
-  static franc(amount) {
+  static franc(amount: number) {
     return new Money(amount, CURRENCY.FRANC);
   }
 }
