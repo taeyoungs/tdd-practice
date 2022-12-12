@@ -1,4 +1,4 @@
-import { Money } from '../ts/Money';
+import Money from '../ts/Money';
 
 test('Dollar 곱하기 연산 검증', () => {
   const five = Money.dollar(5);

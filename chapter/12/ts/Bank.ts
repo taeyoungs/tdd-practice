@@ -1,5 +1,5 @@
 import Expression from './Expression';
-import { Money } from './Money';
+import Money from './Money';
 
 class Bank {
   reduce(source: Expression, to: string): Money {
