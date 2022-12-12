@@ -3,7 +3,7 @@
 ## 개요
 
 코드 중복은 없지만 데이터 중복이 존재한다.  
-Chapter 12에서 빠르게 테스트를 통과시키기 위해서 `가짜 구현`을 진행했었다. 이로 인해 Bank 클래스와 테스트 코드 간에 데이터 중복이 발생한 상황이다.
+Chapter 12에서 빠르게 테스트를 통과시키기 위해서 `가짜 구현`을 진행했었다. 이로 인해 `Bank` 클래스와 테스트 코드 간에 데이터 중복이 발생한 상황이다.
 
 ```typescript
 class Bank {
@@ -153,6 +153,98 @@ class Bank {
 코드르 수정했으므로 테스트를 다시 돌려보자. 테스트는 여전히 잘 통과하고 있다.  
 `Bank` 클래스의 `reduce` 메서드에 존재하던 두 단계에 걸친 참조가 `Sum` 클래스의 `reduce` 메서드 내부로 옮겨가면서 위에서 지저분하다고 느꼈던 이유들 중 하나가 사라졌다.
 
+## `Bank`의 `reduce` 메서드에 `Money`가 들어오는 경우
+
 만약 `Bank`의 `reduce` 메서드에 `Expression`이 아닌 `Money`가 들어오면 어떻게 될까?
 
 이에 대한 테스트 케이스를 작성하자.
+
+```typescript
+test('Bank의 reduce에 Money가 들어올 경우에 대한 검증', () => {
+  const bank = new Bank();
+
+  const result = bank.reduce(Money.dollar(1), CURRENCY.DOLLAR);
+
+  expect(Money.dollar(1).equals(result)).toBe(true);
+});
+```
+
+`Money` 클래스에 `reduce` 메서드는 존재하지 않기 때문에 테스트는 실패한다.  
+테스트를 통과하기 위하여 `Money`일 경우 `source`를 그대로 반환하는 조건문을 추가하자.
+
+```typescript
+class Bank {
+  reduce(source: Expression, to: CurrencyTypes): Money {
+    if (source instanceof Money) {
+      return source;
+    }
+
+    const sum = source as Sum;
+
+    return sum.reduce(to);
+  }
+}
+```
+
+## 다형성을 사용하도록 변경하기
+
+테스트는 통과하게 만들었지만 코드가 여전히 지저분하다.
+
+> _**클래스를 명시적으로 검사하는 코드가 있을 때에는 항상 다형성을 사용하도록 바꾸는 것이 좋다.**_
+
+이전에 `Dollar`와 `Franc`에서 상위 클래스에 메서드를 올리기 위해 작업하던 방식과 동일하다. `Expression`을 구현하는 두 클래스 `Sum`과 `Money`가 `reduce`를 구현하도록 만든다면 `Expression`에도 `reduce`를 추가할 수 있게 된다.
+
+```typescript
+class Bank {
+  reduce(source: Expression, to: CurrencyTypes): Money {
+    if (source instanceof Money) {
+      return source.reduce(to);
+    }
+
+    const sum = source as Sum;
+
+    return sum.reduce(to);
+  }
+}
+
+class Money implements Expression {
+  // ...
+
+  reduce(to: CurrencyTypes): Money {
+    return this;
+  }
+
+  // ...
+}
+
+interface Expression {
+  reduce(to: CurrencyTypes): Money;
+}
+```
+
+`Bank` 클래스의 `reduce`로 들어올 가능성이 있는 `Money`와 `Sum`에 `reduce`를 모두 구현하여 `Expression`에도 `reduce`를 추가할 수 있었다. 따라서, 이제 캐스팅과 클래스 검사 코드를 제거해도 문제가 없다.
+
+```typescript
+class Bank {
+  reduce(source: Expression, to: CurrencyTypes): Money {
+    return source.reduce(to);
+  }
+}
+```
+
+테스트를 돌려도 이상없이 전부 통과한다. 이제 할 일 목록을 업데이트하자.
+
+- [ ] $5 + 10CHF = $10 (환율이 2:1일 경우)
+- [ ] $5 + $5 = $10
+- [ ] $5 + $5에서 Money 반환하기
+- [x] ~~Bank.reduce(Money)~~
+- [ ] Money에 대한 통화 변환을 수행하는 Reduce
+- [ ] Reduce(Bank, String)
+
+## 검토
+
+- 모든 중복이 제거되기 전까지는 테스트를 통과한 것으로 치지 않았다.
+- 구현하기 위해 역방향이 아닌 순방향으로 작업했다.
+- 앞으로 필요할 것으로 예상되는 객체(`Sum`)의 생성을 강요하기 위한 테스트를 작성했다.
+- 일단 한 곳에 캐스팅을 이용해서 코드를 구현했다가, 테스트가 돌아가자 그 코드를 적당한 자리로 옮겼다.
+- 명시적인 클래스 검사를 제거하기 위해 다형성을 사용했다.
