@@ -7,9 +7,7 @@ class Bank {
   reduce(source: Expression, to: CurrencyTypes): Money {
     const sum = source as Sum;
 
-    const amount = sum.augend.amount + sum.addend.amount;
-
-    return new Money(amount, to);
+    return sum.reduce(to);
   }
 }
 
