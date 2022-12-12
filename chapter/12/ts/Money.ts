@@ -1,7 +1,7 @@
 import { CURRENCY, CurrencyTypes } from './constants';
 import Expression from './Expression';
 
-export class Money {
+class Money implements Expression {
   #amount: number;
   #currency: CurrencyTypes;
 
@@ -40,3 +40,5 @@ export class Money {
     return new Money(amount, CURRENCY.FRANC);
   }
 }
+
+export default Money;
