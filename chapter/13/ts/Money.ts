@@ -33,6 +33,10 @@ class Money implements Expression {
     return new Sum(this, added);
   }
 
+  reduce(to: CurrencyTypes): Money {
+    return this;
+  }
+
   static dollar(amount: number) {
     return new Money(amount, CURRENCY.DOLLAR);
   }

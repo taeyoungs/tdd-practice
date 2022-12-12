@@ -6,7 +6,7 @@ import type { CurrencyTypes } from './constants';
 class Bank {
   reduce(source: Expression, to: CurrencyTypes): Money {
     if (source instanceof Money) {
-      return source;
+      return source.reduce(to);
     }
 
     const sum = source as Sum;
