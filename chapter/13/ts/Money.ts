@@ -1,5 +1,6 @@
 import { CURRENCY, CurrencyTypes } from './constants';
 import Expression from './Expression';
+import Sum from './Sum';
 
 class Money implements Expression {
   #amount: number;
@@ -28,8 +29,8 @@ class Money implements Expression {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  plus(added: Money): Expression {
-    return new Money(this.amount + added.amount, this.currency);
+  plus(added: Money) {
+    return new Sum(this, added);
   }
 
   static dollar(amount: number) {
