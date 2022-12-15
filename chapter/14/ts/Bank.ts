@@ -4,7 +4,7 @@ import type { CurrencyTypes } from './constants';
 
 class Bank {
   reduce(source: Expression, to: CurrencyTypes): Money {
-    return source.reduce(to);
+    return source.reduce(this, to);
   }
 }
 
