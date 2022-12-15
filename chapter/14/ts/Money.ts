@@ -1,6 +1,9 @@
-import { CURRENCY, CurrencyTypes } from './constants';
 import Expression from './Expression';
+import Bank from './Bank';
 import Sum from './Sum';
+
+import { CURRENCY } from './constants';
+import type { CurrencyTypes } from './constants';
 
 class Money implements Expression {
   #amount: number;
@@ -33,7 +36,7 @@ class Money implements Expression {
     return new Sum(this, added);
   }
 
-  reduce(to: CurrencyTypes): Money {
+  reduce(bank: Bank, to: CurrencyTypes): Money {
     const rate = this.currency === CURRENCY.FRANC && to === CURRENCY.DOLLAR ? 2 : 1;
 
     return new Money(this.amount / rate, to);

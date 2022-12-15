@@ -1,8 +1,9 @@
-import type { CurrencyTypes } from './constants';
+import Bank from './Bank';
 import Money from './Money';
+import type { CurrencyTypes } from './constants';
 
 interface Expression {
-  reduce(to: CurrencyTypes): Money;
+  reduce(bank: Bank, to: CurrencyTypes): Money;
 }
 
 export default Expression;
