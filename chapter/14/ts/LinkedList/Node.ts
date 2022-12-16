@@ -19,7 +19,11 @@ class Node<T> {
     this.#next = newNode;
   }
 
-  equals(anotherNode: Node<T>) {
+  equals(anotherNode: Node<T> | null) {
+    if (!anotherNode) {
+      return false;
+    }
+
     return this.value === anotherNode.value;
   }
 }
