@@ -1,3 +1,4 @@
+import Pair from '../Pair';
 import Node from './Node';
 
 class LinkedList {
@@ -60,6 +61,20 @@ class LinkedList {
     }
 
     return false;
+  }
+
+  get(pair: Pair) {
+    let node = this.first;
+
+    while (node !== null) {
+      if (node.key.equals(pair)) {
+        return node.value;
+      }
+
+      node = node.next;
+    }
+
+    return null;
   }
 }
 
