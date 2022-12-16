@@ -1,6 +1,7 @@
 import LinkedList from '../../ts/LinkedList';
 import Node from '../../ts/LinkedList/Node';
 import Pair from '../../ts/Pair';
+
 import { CURRENCY } from '../../ts/constants';
 
 describe('LinkedList 인스턴스 검증', () => {
@@ -60,5 +61,21 @@ describe('LinkedList 인스턴스 검증', () => {
 
     expect(value1).toBe(2);
     expect(value2).toBeNull();
+  });
+
+  test('LikedList는 특정 키를 가진 Node의 값을 수정할 수 있어야 한다.', () => {
+    const pair1 = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const pair2 = new Pair(CURRENCY.DOLLAR, CURRENCY.FRANC);
+    const node = new Node(pair1, 2);
+
+    const linkedList = new LinkedList();
+
+    linkedList.add(node);
+
+    linkedList.set(pair1, 4);
+
+    expect(linkedList.get(pair1)).toBe(4);
+
+    expect(() => linkedList.set(pair2, 4)).toThrow(new ReferenceError('Pair does not exist'));
   });
 });
