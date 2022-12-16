@@ -35,7 +35,7 @@ class HashTable {
 
     const linkedList = this.#table.get(hash);
     if (!linkedList) {
-      throw new ReferenceError('Pair does not exist');
+      throw new ReferenceError('hash does not exist');
     }
 
     return linkedList.get(pair);
