@@ -10,8 +10,11 @@ describe('Node 인스턴스 검증', () => {
   test('동일한 value를 가진 Node 인스턴스는 같아야 한다.', () => {
     const node1 = new Node(5);
     const node2 = new Node(5);
+    const node3 = new Node(10);
 
     expect(node1.equals(node2)).toBe(true);
+    expect(node1.equals(node3)).toBe(false);
+    expect(node1.equals(null)).toBe(false);
   });
 
   test('Node 인스턴스는 next에 자신의 다음 Node를 저장할 수 있어야 한다.', () => {
