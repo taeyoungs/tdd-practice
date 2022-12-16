@@ -1,28 +1,42 @@
 import Node from '../../ts/LinkedList/Node';
+import Pair from '../../ts/Pair';
+
+import { CURRENCY } from '../../ts/constants';
 
 describe('Node 인스턴스 검증', () => {
-  test('Node 인스턴스는 value 값을 저장하고 있어야 한다.', () => {
-    const node = new Node(5);
+  test('Node 인스턴스는 특정 Pair에 value를 저장하고 이를 반환받을 수 있어야 한다.', () => {
+    const pair = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const node = new Node(pair, 2);
 
-    expect(node.value).toBe(5);
-  });
-
-  test('동일한 value를 가진 Node 인스턴스는 같아야 한다.', () => {
-    const node1 = new Node(5);
-    const node2 = new Node(5);
-    const node3 = new Node(10);
-
-    expect(node1.equals(node2)).toBe(true);
-    expect(node1.equals(node3)).toBe(false);
-    expect(node1.equals(null)).toBe(false);
+    expect(node.value).toBe(2);
   });
 
   test('Node 인스턴스는 next에 자신의 다음 Node를 저장할 수 있어야 한다.', () => {
-    const node1 = new Node(5);
-    const node2 = new Node(10);
+    const pair1 = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const pair2 = new Pair(CURRENCY.DOLLAR, CURRENCY.FRANC);
+    const node1 = new Node(pair1, 2);
+    const node2 = new Node(pair2, 3);
 
     node1.next = node2;
 
     expect(node2.equals(node1.next)).toBe(true);
+  });
+
+  test('같은 Pair를 갖는 Node는 같아야 한다.', () => {
+    const pair = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const node1 = new Node(pair, 2);
+    const node2 = new Node(pair, 3);
+
+    expect(node1.equals(node2)).toBe(true);
+  });
+
+  test('다른 Pair를 갖는 Node는 달라야 한다.', () => {
+    const pair1 = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const pair2 = new Pair(CURRENCY.DOLLAR, CURRENCY.FRANC);
+    const node1 = new Node(pair1, 2);
+    const node2 = new Node(pair2, 2);
+
+    expect(node1.equals(null)).toBe(false);
+    expect(node1.equals(node2)).toBe(false);
   });
 });
