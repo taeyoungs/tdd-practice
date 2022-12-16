@@ -1,10 +1,18 @@
-class Node<T> {
-  #value: T;
-  #next: Node<T> | null;
+import Pair from '../Pair';
 
-  constructor(value: T) {
+class Node {
+  #key: Pair;
+  #value: number;
+  #next: Node | null;
+
+  constructor(key: Pair, value: number) {
+    this.#key = key;
     this.#value = value;
     this.#next = null;
+  }
+
+  get key() {
+    return this.#key;
   }
 
   get value() {
@@ -15,16 +23,16 @@ class Node<T> {
     return this.#next;
   }
 
-  set next(newNode: Node<T> | null) {
+  set next(newNode: Node | null) {
     this.#next = newNode;
   }
 
-  equals(anotherNode: Node<T> | null) {
+  equals(anotherNode: Node | null) {
     if (!anotherNode) {
       return false;
     }
 
-    return this.value === anotherNode.value;
+    return this.key.equals(anotherNode.key);
   }
 }
 
