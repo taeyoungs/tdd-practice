@@ -23,6 +23,6 @@ describe('Node 인스턴스 검증', () => {
 
     node1.next = node2;
 
-    expect(node1.next.value).toBe(10);
+    expect(node2.equals(node1.next)).toBe(true);
   });
 });
