@@ -1,8 +1,8 @@
 import Node from './Node';
 
-class LinkedList<T> {
-  #first: Node<T> | null;
-  #last: Node<T> | null;
+class LinkedList {
+  #first: Node | null;
+  #last: Node | null;
   #length: number;
 
   constructor() {
@@ -15,7 +15,7 @@ class LinkedList<T> {
     return this.#first;
   }
 
-  set first(newNode: Node<T> | null) {
+  set first(newNode: Node | null) {
     this.#first = newNode;
   }
 
@@ -23,7 +23,7 @@ class LinkedList<T> {
     return this.#last;
   }
 
-  set last(newNode: Node<T> | null) {
+  set last(newNode: Node | null) {
     this.#last = newNode;
   }
 
@@ -35,7 +35,7 @@ class LinkedList<T> {
     this.#length = len;
   }
 
-  add(newNode: Node<T>) {
+  add(newNode: Node) {
     this.length = this.length + 1;
 
     if (this.first === null || this.last === null) {
@@ -48,7 +48,7 @@ class LinkedList<T> {
     this.last = newNode;
   }
 
-  contains(comparisonNode: Node<T>) {
+  contains(comparisonNode: Node) {
     let node = this.first;
 
     while (node !== null) {
