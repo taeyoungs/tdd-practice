@@ -76,6 +76,21 @@ class LinkedList {
 
     return null;
   }
+
+  set(pair: Pair, value: number) {
+    let node = this.first;
+
+    while (node !== null) {
+      if (node.key.equals(pair)) {
+        node.value = value;
+        return;
+      }
+
+      node = node.next;
+    }
+
+    throw new ReferenceError('Pair does not exist');
+  }
 }
 
 export default LinkedList;
