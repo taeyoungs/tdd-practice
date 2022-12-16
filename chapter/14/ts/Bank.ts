@@ -3,7 +3,6 @@ import Money from './Money';
 import HashTable from './HashTable';
 import Pair from './Pair';
 
-import { CURRENCY } from './constants';
 import type { CurrencyTypes } from './constants';
 
 class Bank {
