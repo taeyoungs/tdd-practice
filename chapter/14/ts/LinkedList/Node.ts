@@ -18,6 +18,10 @@ class Node<T> {
   set next(newNode: Node<T> | null) {
     this.#next = newNode;
   }
+
+  equals(anotherNode: Node<T>) {
+    return this.value === anotherNode.value;
+  }
 }
 
 export default Node;
