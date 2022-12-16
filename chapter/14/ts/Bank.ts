@@ -17,6 +17,10 @@ class Bank {
   }
 
   rate(from: CurrencyTypes, to: CurrencyTypes) {
+    if (from === to) {
+      return 1;
+    }
+
     const pair = new Pair(from, to);
 
     return this.#hashTable.get(pair);
