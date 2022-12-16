@@ -22,6 +22,15 @@ describe('Node 인스턴스 검증', () => {
     expect(node2.equals(node1.next)).toBe(true);
   });
 
+  test('Node 인스턴스는 값을 수정할 수 있어야 한다.', () => {
+    const pair = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
+    const node = new Node(pair, 2);
+
+    node.value = 4;
+
+    expect(node.value).toBe(4);
+  });
+
   test('같은 Pair를 갖는 Node는 같아야 한다.', () => {
     const pair = new Pair(CURRENCY.FRANC, CURRENCY.DOLLAR);
     const node1 = new Node(pair, 2);
