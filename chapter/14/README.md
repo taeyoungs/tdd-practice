@@ -160,7 +160,7 @@ export default Pair;
 > 책에서는 `Pair` 클래스에 `equals`와 `hashCode` 메서드를 구현한다. 이는 자바에서 지원해주는 `HashTable` 클래스에서 `equals`와 `hashCode`를 사용하기 때문이다.
 
 > _`hashCode` 메소드를 실행해서 리턴된 해시코드 값이 같은지를 본다. 해시 코드값이 다르면 다른 객체로 판단하고, 해시 코드값이 같으면 `equals` 메소드로 다시 비교한다. 이 두 개가 모두 맞아야 동등 객체로 판단한다. 즉, 해시코드 값이 다른 엔트리끼리는 동치성 비교를 시도조차 하지 않는다._  
-> https://jisooo.tistory.com/entry/java-hashcode%EC%99%80-equals-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B3%A0-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C
+> [java-hashcode와-equals-메서드는-언제-사용하고-왜-사용할까](https://jisooo.tistory.com/entry/java-hashcode%EC%99%80-equals-%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94-%EC%96%B8%EC%A0%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B3%A0-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%A0%EA%B9%8C)
 
 `Pair` 클래스의 인스턴스를 키로 사용할 것이기 때문에 `equals`와 `hashCode` 메서드를 구현한다.
 
@@ -204,10 +204,10 @@ class Pair {
 
 ```typescript
 class Bank {
-  #hashTable: HashTable;
+  #rates: HashTable;
 
   constructor() {
-    this.#hashTable = new HashTable();
+    this.#rates = new HashTable();
   }
 
   // ...
@@ -223,7 +223,7 @@ class Bank {
   addRate(from: CurrencyTypes, to: CurrencyTypes, rate: number) {
     const pair = new Pair(from, to);
 
-    this.#hashTable.put(pair, rate);
+    this.#rates.put(pair, rate);
   }
 }
 ```
@@ -237,7 +237,7 @@ class Bank {
   rate(from: CurrencyTypes, to: CurrencyTypes) {
     const pair = new Pair(from, to);
 
-    return this.#hashTable.get(pair);
+    return this.#rates.get(pair);
   }
 
   // ...
@@ -279,7 +279,7 @@ class Bank {
 
     const pair = new Pair(from, to);
 
-    return this.#hashTable.get(pair);
+    return this.#rates.get(pair);
   }
 
   // ...

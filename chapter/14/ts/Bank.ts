@@ -6,10 +6,10 @@ import Pair from './Pair';
 import type { CurrencyTypes } from './constants';
 
 class Bank {
-  #hashTable: HashTable;
+  #rates: HashTable;
 
   constructor() {
-    this.#hashTable = new HashTable();
+    this.#rates = new HashTable();
   }
 
   reduce(source: Expression, to: CurrencyTypes): Money {
@@ -23,13 +23,13 @@ class Bank {
 
     const pair = new Pair(from, to);
 
-    return this.#hashTable.get(pair);
+    return this.#rates.get(pair);
   }
 
   addRate(from: CurrencyTypes, to: CurrencyTypes, rate: number) {
     const pair = new Pair(from, to);
 
-    this.#hashTable.put(pair, rate);
+    this.#rates.put(pair, rate);
   }
 }
 
