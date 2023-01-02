@@ -28,12 +28,12 @@ class Money implements Expression {
     return this.amount === instance.amount && isSameCurrency;
   }
 
-  times(multiplier: number) {
+  times(multiplier: number): Expression {
     return new Money(this.amount * multiplier, this.currency);
   }
 
-  plus(added: Money) {
-    return new Sum(this, added);
+  plus(addend: Expression): Expression {
+    return new Sum(this, addend);
   }
 
   reduce(bank: Bank, to: CurrencyTypes): Money {

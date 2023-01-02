@@ -18,6 +18,10 @@ class Sum implements Expression {
 
     return new Money(amount, to);
   }
+
+  plus(_addend: Expression): Expression {
+    return this;
+  }
 }
 
 export default Sum;
