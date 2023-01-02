@@ -23,7 +23,13 @@ class Bank {
 
     const pair = new Pair(from, to);
 
-    return this.#rates.get(pair);
+    const rateOfPair = this.#rates.get(pair);
+
+    if (!rateOfPair) {
+      throw new ReferenceError('Rate does not exist');
+    }
+
+    return rateOfPair;
   }
 
   addRate(from: CurrencyTypes, to: CurrencyTypes, rate: number) {
