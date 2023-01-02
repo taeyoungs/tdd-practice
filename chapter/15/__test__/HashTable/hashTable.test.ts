@@ -10,6 +10,8 @@ describe('HashTable 인스턴스 검증', () => {
 
     const hashTable = new HashTable();
 
+    expect(hashTable.get(pair1)).toBeNull();
+
     hashTable.put(pair1, 2);
 
     expect(hashTable.get(pair1)).toBe(2);
