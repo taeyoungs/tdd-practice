@@ -2,10 +2,11 @@ import Bank from '15/ts/Bank';
 import Money from '15/ts/Money';
 
 import { CURRENCY } from '15/ts/constants';
+import Expression from '15/ts/Expression';
 
 test('서로 다른 통화 더하기 검증', () => {
-  const fiveBucks = Money.dollar(5);
-  const tenFrancs = Money.franc(10);
+  const fiveBucks: Expression = Money.dollar(5);
+  const tenFrancs: Expression = Money.franc(10);
 
   // * Franc -> Dollar에 대한 환율 정보를 입력한다.
   const bank = new Bank();
