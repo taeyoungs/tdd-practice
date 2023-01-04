@@ -6,6 +6,8 @@ interface Expression {
   reduce(bank: Bank, to: CurrencyTypes): Money;
 
   plus(addend: Expression): Expression;
+
+  times(multiplier: number): Expression;
 }
 
 export default Expression;
