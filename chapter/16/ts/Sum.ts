@@ -19,8 +19,8 @@ class Sum implements Expression {
     return new Money(amount, to);
   }
 
-  plus(_addend: Expression): Expression {
-    return this;
+  plus(addend: Expression): Expression {
+    return new Sum(this, addend);
   }
 }
 
