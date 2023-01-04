@@ -21,3 +21,4 @@ http://www.yes24.com/Product/Goods/12246033
 - [Chapter 13 - 진짜로 만들기](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/13)
 - [Chapter 14 - 바꾸기](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/14)
 - [Chapter 15 - 서로 다른 통화 더하기](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/15)
+- [Chapter 16 - 드디어, 추상화](https://github.com/taeyoungs/tdd-practice/tree/main/chapter/16)

@@ -1,5 +1,13 @@
 # Chapter 16 - 드디어, 추상화
 
+**목차**
+
+- [Chapter 16 - 드디어, 추상화](#chapter-16---드디어-추상화)
+  - [개요](#개요)
+  - [Sum.plus()](#sumplus)
+  - [Expression.times](#expressiontimes)
+  - [검토](#검토)
+
 ## 개요
 
 > 이전 Chapter에서 Money의 plus 메서드와 times 메서드의 반환 타입을 Expression으로 명시해주면서 plusReturnSum.test.ts와 multiplication.test.ts에서 타입 오류가 발생하기 시작했다. 원인 자체는 반환 타입으로 명시되어 있는 Expression에 Money 클래스의 equals 메서드 내부 로직에서 사용하는 속성들이 존재하지 않기 때문이다. 책이 1부 일정 챕터를 넘어가면서 할 일 목록을 초기화했었는데 이전 테스트들에 대해서는 더 이상 고려하지 않는 것인지 자바와 타입스크립트의 차이인지 정확히는 모르겠다. 자바라 해도 부모 타입으로 정의한 이상 자식 클래스에서만 가지고 있는 멤버 변수를 접근할 수는 없을 것 같은데 .. 🫠
